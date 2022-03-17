@@ -1,0 +1,31 @@
+D:\!Background\!Programing\Visual Basic\suXjung_Crypter\suXjung_Crypter\suXjung_Crypter\bin\Debug\MetroFramework.Design.dll
+D:\!Background\!Programing\Visual Basic\suXjung_Crypter\suXjung_Crypter\suXjung_Crypter\bin\Debug\MetroFramework.dll
+D:\!Background\!Programing\Visual Basic\suXjung_Crypter\suXjung_Crypter\suXjung_Crypter\bin\Debug\MetroFramework.Fonts.dll
+D:\!Background\!Programing\Visual Basic\suXjung_Crypter\suXjung_Crypter\suXjung_Crypter\obj\Debug\suXjung_Crypter.vbproj.GenerateResource.cache
+D:\!Background\!Programing\Visual Basic\suXjung_Crypter\suXjung_Crypter\suXjung_Crypter\obj\Debug\suXjung_Crypter.vbproj.CoreCompileInputs.cache
+D:\!Background\!Programing\Visual Basic\suXjung_Crypter\suXjung_Crypter\suXjung_Crypter\obj\Debug\suXjung_Crypter.vbproj.CopyComplete
+D:\!Background\!Programing\Visual Basic\suXjung_Crypter\suXjung_Crypter\suXjung_Crypter\bin\Debug\Nong_Crypter.exe.config
+D:\!Background\!Programing\Visual Basic\suXjung_Crypter\suXjung_Crypter\suXjung_Crypter\bin\Debug\Nong_Crypter.exe
+D:\!Background\!Programing\Visual Basic\suXjung_Crypter\suXjung_Crypter\suXjung_Crypter\bin\Debug\Nong_Crypter.pdb
+D:\!Background\!Programing\Visual Basic\suXjung_Crypter\suXjung_Crypter\suXjung_Crypter\bin\Debug\Nong_Crypter.xml
+D:\!Background\!Programing\Visual Basic\suXjung_Crypter\suXjung_Crypter\suXjung_Crypter\obj\Debug\Nong_Crypter.Form1.resources
+D:\!Background\!Programing\Visual Basic\suXjung_Crypter\suXjung_Crypter\suXjung_Crypter\obj\Debug\Nong_Crypter.Resources.resources
+D:\!Background\!Programing\Visual Basic\suXjung_Crypter\suXjung_Crypter\suXjung_Crypter\obj\Debug\Nong_Crypter.exe
+D:\!Background\!Programing\Visual Basic\suXjung_Crypter\suXjung_Crypter\suXjung_Crypter\obj\Debug\Nong_Crypter.xml
+D:\!Background\!Programing\Visual Basic\suXjung_Crypter\suXjung_Crypter\suXjung_Crypter\obj\Debug\Nong_Crypter.pdb
+D:\!Git\suXjung_Crypter\suXjung_Crypter\bin\Debug\Nong_Crypter.exe.config
+D:\!Git\suXjung_Crypter\suXjung_Crypter\bin\Debug\Nong_Crypter.exe
+D:\!Git\suXjung_Crypter\suXjung_Crypter\bin\Debug\Nong_Crypter.pdb
+D:\!Git\suXjung_Crypter\suXjung_Crypter\bin\Debug\Nong_Crypter.xml
+D:\!Git\suXjung_Crypter\suXjung_Crypter\bin\Debug\MetroFramework.Design.dll
+D:\!Git\suXjung_Crypter\suXjung_Crypter\bin\Debug\MetroFramework.dll
+D:\!Git\suXjung_Crypter\suXjung_Crypter\bin\Debug\MetroFramework.Fonts.dll
+D:\!Git\suXjung_Crypter\suXjung_Crypter\obj\Debug\suXjung_Crypter.vbproj.AssemblyReference.cache
+D:\!Git\suXjung_Crypter\suXjung_Crypter\obj\Debug\Nong_Crypter.Form1.resources
+D:\!Git\suXjung_Crypter\suXjung_Crypter\obj\Debug\Nong_Crypter.Resources.resources
+D:\!Git\suXjung_Crypter\suXjung_Crypter\obj\Debug\suXjung_Crypter.vbproj.GenerateResource.cache
+D:\!Git\suXjung_Crypter\suXjung_Crypter\obj\Debug\suXjung_Crypter.vbproj.CoreCompileInputs.cache
+D:\!Git\suXjung_Crypter\suXjung_Crypter\obj\Debug\suXjung_Crypter.vbproj.CopyComplete
+D:\!Git\suXjung_Crypter\suXjung_Crypter\obj\Debug\Nong_Crypter.exe
+D:\!Git\suXjung_Crypter\suXjung_Crypter\obj\Debug\Nong_Crypter.xml
+D:\!Git\suXjung_Crypter\suXjung_Crypter\obj\Debug\Nong_Crypter.pdb
